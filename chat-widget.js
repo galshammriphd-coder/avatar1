@@ -144,7 +144,7 @@
   const btn = document.createElement('button');
   btn.id = '__cwb';
   btn.innerHTML = `
-    <img src="https://ksuai.ksu.edu.sa/sites/ksuai.ksu.edu.sa/files/2026-02/adeeb_full.png" alt="أديب" class="avatar-img">
+    <img src="https://cdn.jsdelivr.net/gh/galshammriphd-coder/avatar1@main/adeeb_full.png" alt="أديب" class="avatar-img">
     <span class="icon-close">×</span>
     <span id="__cw-badge">1</span>
   `;
@@ -184,6 +184,7 @@
     }
   };
 })();
+
 
 
 
