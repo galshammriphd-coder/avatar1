@@ -7,6 +7,8 @@
 
   const CHATBOT_URL = 'https://course-chatbot1.onrender.com/';
   const WIDGET_ID = '__course-chatbot-widget__';
+  const AVATAR_URL = 'https://cdn.jsdelivr.net/gh/galshammriphd-coder/avatar1@main/adeeb_full.png';
+
 
   if (document.getElementById(WIDGET_ID)) return;
 
@@ -144,7 +146,7 @@
   const btn = document.createElement('button');
   btn.id = '__cwb';
   btn.innerHTML = `
-    <img src="https://raw.githubusercontent.com/galshammriphd-coder/avatar1/main/adeeb_full.png" alt="أديب" class="avatar-img">
+    <img src="${AVATAR_URL}" alt="أديب" class="avatar-img">
     <span class="icon-close">×</span>
     <span id="__cw-badge">1</span>
   `;
@@ -155,7 +157,7 @@
   panel.innerHTML = `
     <div id="__cwp-header">
       <div id="__cwp-avatar-wrap">
-        <img src="https://raw.githubusercontent.com/galshammriphd-coder/avatar1/main/adeeb_full.png" alt="أديب">
+        <img src="${AVATAR_URL}" alt="أديب">
       </div>
       <div>
         <div id="__cwp-name">أديب - المساعد الذكي</div>
@@ -184,6 +186,7 @@
     }
   };
 })();
+
 
 
 
