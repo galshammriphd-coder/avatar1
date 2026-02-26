@@ -144,7 +144,7 @@
   const btn = document.createElement('button');
   btn.id = '__cwb';
   btn.innerHTML = `
-    <img src="https://github.com/galshammriphd-coder/avatar1/blob/main/adeeb_full.png" alt="أديب" class="avatar-img">
+    <img src="/adeeb_full.png" alt="أديب" class="avatar-img">
     <span class="icon-close">×</span>
     <span id="__cw-badge">1</span>
   `;
@@ -184,4 +184,5 @@
     }
   };
 })();
+
 
