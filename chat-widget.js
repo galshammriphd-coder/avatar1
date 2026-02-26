@@ -155,7 +155,7 @@
   panel.innerHTML = `
     <div id="__cwp-header">
       <div id="__cwp-avatar-wrap">
-        <img src="adeeb_full.png" alt="أديب">
+        <img src="https://cdn.jsdelivr.net/gh/galshammriphd-coder/avatar1@main/adeeb_full.png" alt="أديب">
       </div>
       <div>
         <div id="__cwp-name">أديب - المساعد الذكي</div>
@@ -184,6 +184,7 @@
     }
   };
 })();
+
 
 
 
