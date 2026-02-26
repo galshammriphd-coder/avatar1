@@ -144,7 +144,7 @@
   const btn = document.createElement('button');
   btn.id = '__cwb';
   btn.innerHTML = `
-    <img src="https://cdn.jsdelivr.net/gh/galshammriphd-coder/avatar1@main/adeeb_full.png" alt="أديب" class="avatar-img">
+    <img src="https://raw.githubusercontent.com/galshammriphd-coder/avatar1/main/adeeb_full.png" alt="أديب" class="avatar-img">
     <span class="icon-close">×</span>
     <span id="__cw-badge">1</span>
   `;
@@ -155,7 +155,7 @@
   panel.innerHTML = `
     <div id="__cwp-header">
       <div id="__cwp-avatar-wrap">
-        <img src="https://cdn.jsdelivr.net/gh/galshammriphd-coder/avatar1@main/adeeb_full.png" alt="أديب">
+        <img src="https://raw.githubusercontent.com/galshammriphd-coder/avatar1/main/adeeb_full.png" alt="أديب">
       </div>
       <div>
         <div id="__cwp-name">أديب - المساعد الذكي</div>
@@ -184,6 +184,7 @@
     }
   };
 })();
+
 
 
 
