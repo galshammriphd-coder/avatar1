@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مثال توضيحي – ويدجت المساعد الذكي</title>
+  <meta name="description" content="صفحة موقع توضيحية تُظهر كيفية دمج ويدجت المساعد الذكي" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #6C63FF;
+      --accent2: #3ECFCF;
+      --bg: #0f0f1a;
+      --surface: #1a1a2e;
+      --surface2: #22223b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Cairo', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(15,15,26,.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff !important;
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-size: 13px !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 100px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(108,99,255,.18) 0%, transparent 70%);
+      top: -100px; left: 50%; transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(108,99,255,.15);
+      border: 1px solid rgba(108,99,255,.35);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 13px;
+      color: #a78bfa;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 68px);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 560px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(108,99,255,.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(108,99,255,.5); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid rgba(255,255,255,.2);
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline:hover { border-color: var(--accent); background: rgba(108,99,255,.08); }
+
+    /* ── FEATURES ── */
+    .features {
+      padding: 80px 48px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 20px;
+      padding: 32px;
+      transition: transform .3s, border-color .3s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: rgba(108,99,255,.3); }
+    .card-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+    .card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+    /* ── CODE SNIPPET ── */
+    .code-section {
+      max-width: 860px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+    .code-section h2 {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .code-section .sub {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 32px;
+      font-size: 15px;
+    }
+    .code-box {
+      background: #0d0d1a;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: rgba(255,255,255,.04);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .code-dots { display: flex; gap: 6px; }
+    .code-dots span {
+      width: 12px; height: 12px; border-radius: 50%;
+    }
+    .code-dots span:nth-child(1) { background: #FF5F57; }
+    .code-dots span:nth-child(2) { background: #FEBC2E; }
+    .code-dots span:nth-child(3) { background: #28C840; }
+    .code-lang { color: var(--muted); font-size: 12px; font-family: monospace; }
+    .copy-btn {
+      background: rgba(108,99,255,.2);
+      border: 1px solid rgba(108,99,255,.4);
+      color: #a78bfa;
+      padding: 5px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: 'Cairo', sans-serif;
+      transition: background .2s;
+    }
+    .copy-btn:hover { background: rgba(108,99,255,.35); }
+    .copy-btn.copied { color: #4ade80; border-color: #4ade80; background: rgba(74,222,128,.15); }
+    pre {
+      padding: 24px;
+      overflow-x: auto;
+      direction: ltr;
+    }
+    code {
+      font-family: 'Fira Code', 'Courier New', monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #e2e8f0;
+    }
+    .t-tag { color: #7dd3fc; }   /* tags */
+    .t-attr { color: #a78bfa; }  /* attrs */
+    .t-str { color: #86efac; }   /* strings */
+    .t-com { color: #64748b; }   /* comments */
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    footer span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">⚡ EduBot</div>
+    <div class="nav-links">
+      <a href="#">الرئيسية</a>
+      <a href="#">المقررات</a>
+      <a href="#">من نحن</a>
+      <a href="#embed" class="nav-cta">تفعيل الويدجت</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-badge">✨ مدعوم بالذكاء الاصطناعي</div>
+    <h1>منصة التعليم <span>الذكية</span></h1>
+    <p>
+      اسأل المساعد الذكي عن أي محتوى في المقرر وستحصل على إجابة فورية مبنية على المواد المرفوعة.
+    </p>
+    <div class="hero-btns">
+      <button class="btn-primary">ابدأ التعلم الآن</button>
+      <button class="btn-outline">تعرف على المزيد</button>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="card">
+      <div class="card-icon">🧠</div>
+      <h3>ذكاء اصطناعي متقدم</h3>
+      <p>يعتمد على GPT-4o مع تقنية RAG للإجابة بدقة عالية من محتوى المقرر فقط.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📄</div>
+      <h3>رفع الملفات</h3>
+      <p>ارفع ملفات PDF أو نصية وسيقوم المساعد بتحليلها والإجابة عنها.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <h3>سهل التضمين</h3>
+      <p>أضف سطراً واحداً من HTML إلى أي صفحة ويب وسيظهر المساعد تلقائياً.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔒</div>
+      <h3>آمن وخاص</h3>
+      <p>كل محادثة معزولة ومحمية، ومحتوى كل مقرر حصري لطلابه.</p>
+    </div>
+  </section>
+
+  <!-- CODE SNIPPET -->
+  <section class="code-section" id="embed">
+    <h2>كيف تضيف الويدجت؟</h2>
+    <p class="sub">أضف السطر التالي قبل نهاية تاج <code>&lt;/body&gt;</code> في صفحتك</p>
+    <div class="code-box">
+      <div class="code-header">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <span class="code-lang">HTML</span>
+        <button class="copy-btn" id="copyBtn" onclick="copyCode()">نسخ</button>
+      </div>
+      <pre><code id="embedCode"><span class="t-com">&lt;!-- أضف هذا السطر في نهاية &lt;body&gt; --&gt;</span>
+<span class="t-tag">&lt;script</span> <span class="t-attr">src</span>=<span class="t-str">"https://your-host/chat-widget.js"</span><span class="t-tag">&gt;&lt;/script&gt;</span></code></pre>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>صُنع بـ ❤️ · مدعوم من <span>EduBot AI</span> · جميع الحقوق محفوظة © 2025</p>
+  </footer>
+
+  <!-- 👇 THE WIDGET (just one line) -->
+  <script src="chat-widget.js"></script>
+
+  <script>
+    function copyCode() {
+      const code = `<script src="https://your-host/chat-widget.js"><\/script>`;
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = '✓ تم النسخ';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'نسخ'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
