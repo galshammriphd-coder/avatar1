@@ -7,7 +7,7 @@
 
   const CHATBOT_URL = 'https://course-chatbot1.onrender.com/';
   const WIDGET_ID = '__course-chatbot-widget__';
-  const AVATAR_URL = 'https://cdn.jsdelivr.net/gh/galshammriphd-coder/avatar1@main/adeeb_full.png';
+  const AVATAR_URL = "https://cdn.jsdelivr.net/gh/galshammriphd-coder/avatar1@main/adeeb_full.png";
 
 
   if (document.getElementById(WIDGET_ID)) return;
@@ -186,6 +186,7 @@
     }
   };
 })();
+
 
 
 
